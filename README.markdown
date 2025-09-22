@@ -19,6 +19,46 @@ A full-stack web application for managing a sweet shop's inventory, user authent
 - **Backend**: Node.js, Express, MongoDB, Mongoose, JWT.
 - **API Docs**: Swagger.
 
+
+## My AI Usage
+
+### AI Tools Used
+- **Grok by xAI**: The primary AI tool used for development, debugging, and documentation of this project.
+
+### How I Used Grok
+- **Frontend Development**:
+  - I used Grok to generate the initial structure of React components, such as `Dashboard.jsx`, including the layout for the search bar, sweets table, and modals (Add/Edit, Buy, Restock).
+  - Grok helped modify the "Add Sweet" button in `Dashboard.jsx` to use the `btn-custom-purple` class (`#563d7c` background, white text, hover `#4b3666`), ensuring consistency with the Login/Register buttons while preserving alignment and icon styling.
+  - I asked Grok to provide troubleshooting steps for frontend issues, such as verifying button styles and responsive design in DevTools.
+- **Backend Development**:
+  - Grok assisted in generating the backend API routes (`auth.js`, `sweets.js`) with proper middleware for JWT authentication and admin role checks.
+  - I used Grok to brainstorm the structure of API endpoints (e.g., `/api/sweets`, `/api/sweets/{id}/buy`) and ensure they aligned with RESTful principles.
+  - Grok provided the code for integrating Swagger (`swagger.js`) and adding detailed `@swagger` comments to document endpoints, including request/response schemas and JWT security.
+- **Documentation**:
+  - I relied on Grok to draft and refine this `README.md`, ensuring it included clear installation steps, usage instructions, and styling details (e.g., coral/cream theme, `#563d7c` buttons).
+  - Grok helped structure the **My AI Usage** section to meet the requirement of detailing AI tool usage and reflection.
+- **Debugging and Optimization**:
+  - Grok suggested verification steps for the frontend (e.g., checking `index.css` for `btn-custom-purple`) and backend (e.g., ensuring MongoDB connection).
+  - I used Grok to generate commands for clearing Vite cache and checking CORS settings when troubleshooting.
+
+### Reflection on AI Impact
+Grok significantly streamlined my workflow by accelerating code generation, debugging, and documentation. It saved time by providing accurate React and Express code snippets tailored to my requirements, such as styling the "Add Sweet" button and setting up Swagger. The AI's ability to understand the project context (e.g., `#563d7c` theme, JWT auth) ensured consistency across frontend and backend. However, I had to carefully review Grok's outputs to ensure alignment with specific project needs, like avoiding test file generation and maintaining existing button styles. The iterative nature of asking Grok for refinements (e.g., adding this section) improved the quality of the codebase and documentation. Overall, Grok enhanced productivity but required active oversight to ensure precision, especially for complex integrations like Swagger.
+
+
+## Screenshots
+
+Below are screenshots of the key interfaces in the Sweet Shop Management System:
+
+- **Dashboard**: Displays the search bar, sweets table, and purple "Add Sweet" button.
+  ![Dashboard](screenshots/dashboard.png)
+- **Swagger UI**: Interactive API documentation for testing endpoints.
+  ![Swagger UI](screenshots/swagger-ui.png)
+- **Login Page**: Shows the login form with purple buttons and coral/cream theme.
+  ![Login Page](screenshots/login.png)
+
+*Note*: Screenshots are stored in the `screenshots/` folder. See **Adding Screenshots** below for instructions on capturing and updating them.
+
+
 ## Prerequisites
 
 - **Node.js**: v16 or higher.
@@ -32,6 +72,7 @@ A full-stack web application for managing a sweet shop's inventory, user authent
 git clone <your-repo-url>
 cd sweet-shop
 ```
+
 
 ### Backend Setup
 1. Navigate to the backend directory:
