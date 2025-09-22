@@ -1,6 +1,6 @@
 # Sweet Shop Management System
 
-A full-stack web application for managing a sweet shop's inventory, user authentication, and purchase/restock operations. The frontend is built with React and Bootstrap, styled with a coral/cream theme and dark purple highlights (`#563d7c`). The backend uses Node.js, Express, MongoDB, and JWT for authentication, with Swagger for API documentation.
+A full-stack web application for managing a sweet shop's inventory, user authentication, and purchase/restock operations. The frontend is built with React and Bootstrap. The backend uses Node.js, Express, MongoDB, and JWT for authentication, with Swagger for API documentation.
 
 ## Features
 
@@ -10,21 +10,14 @@ A full-stack web application for managing a sweet shop's inventory, user authent
   - **Admins**: Add, edit, delete, and restock sweets.
 - **UI Design**:
   - Responsive dashboard with a search bar, table for sweets, and action buttons.
-  - Buttons: 
-    - Search/Save: Large, dark purple (`#563d7c`), white text, hover `#4b3666`.
-    - Add Sweet: Large, purple (`#563d7c`), white text, hover `#4b3666`.
-    - Edit/Buy/Restock/Delete/Cancel: Smaller, dark purple (`#563d7c`), white text, hover `#4b3666`.
-  - Icons: Bootstrap Icons (`bi-search`, `bi-plus-circle`, `bi-save`, etc.) in `#563d7c`.
-  - Coral/cream theme (`#ff6f61`, `#fff3e0`) with no welcome message or logout button (logout in navbar dropdown).
 - **API Documentation**: Swagger UI at `/api-docs` for testing endpoints.
 - **Backend**: MongoDB for data storage, Express for API, JWT for secure access.
 
 ## Tech Stack
 
-- **Frontend**: React, React Bootstrap, Bootstrap Icons, Vite, Tailwind CSS (via `index.css`).
+- **Frontend**: React, React Bootstrap, Vite, Tailwind CSS.
 - **Backend**: Node.js, Express, MongoDB, Mongoose, JWT.
-- **API Docs**: Swagger (swagger-jsdoc, swagger-ui-express).
-- **Testing**: Jest, React Testing Library (frontend).
+- **API Docs**: Swagger.
 
 ## Prerequisites
 
@@ -136,7 +129,7 @@ sweet-shop/
 │   │   └── sweetsController.js
 │   ├── middleware/
 │   │   └── auth.js
-│   ├── db/
+│   ├── Db/
 │   │   └── db.js
 │   ├── swagger.js
 │   ├── server.js
@@ -158,51 +151,3 @@ sweet-shop/
 │   └── package.json
 └── README.md
 ```
-
-## Styling Notes
-
-- **Theme**: Coral (`#ff6f61`) and cream (`#fff3e0`) with dark purple (`#563d7c`) buttons/icons.
-- **Buttons**:
-  - Search/Save: Large, `#563d7c`, white text, hover `#4b3666`.
-  - Add Sweet: Large, `#563d7c`, white text, hover `#4b3666` (uses `btn-custom-purple`).
-  - Edit/Buy/Restock/Delete/Cancel: Smaller, `#563d7c`, white text, hover `#4b3666`.
-- **Icons**: `#563d7c`, 16px (14px on mobile), centered with text (`gap-2`).
-- **Navbar**: `#563d7c`, no top whitespace, includes `bi-shop` and `bi-person-fill` icons.
-
-## Troubleshooting
-
-- **Backend Errors**:
-  - Ensure MongoDB is running and `MONGODB_URI` is correct.
-  - Check `JWT_SECRET` in `.env`.
-  - Clear cache: `rm -rf node_modules/.cache` and `npm install`.
-- **Frontend Errors**:
-  - Verify backend is running (`http://localhost:5000`).
-  - Check CORS in `server.js`: `app.use(cors())`.
-- **Swagger Issues**:
-  - Access `http://localhost:5000/api-docs`.
-  - Ensure `swagger.js` points to `routes/*.js`.
-  - Use valid JWT for protected endpoints.
-- **Button Misalignment**: Inspect with DevTools; verify `index.css` for `btn-custom-purple` and `gap: 0.5rem`.
-
-## Deployment
-
-1. **Backend**:
-   - Set `MONGODB_URI` and `JWT_SECRET` in production environment.
-   - Update `swagger.js` server URL (e.g., `https://your-api.com`).
-   - Deploy with a service like Render or Heroku.
-2. **Frontend**:
-   - Build: `cd frontend && npm run build`.
-   - Serve `dist/` folder with backend or a static host (e.g., Netlify).
-   - Update API base URL in `frontend/src/services/sweetsService.js`.
-
-## Contributing
-
-1. Fork the repository.
-2. Create a feature branch: `git checkout -b feature-name`.
-3. Commit changes: `git commit -m "Add feature"`.
-4. Push: `git push origin feature-name`.
-5. Open a pull request.
-
-## License
-
-MIT License. See `LICENSE` file for details.
