@@ -1,6 +1,6 @@
 # Sweet Shop Management System
 
-A full-stack web application for managing a sweet shop's inventory, user authentication, and purchase/restock operations. The frontend is built with React and Bootstrap, styled with a coral/cream theme and dark purple highlights (`#563d7c`). The backend uses Node.js, Express, MongoDB, and JWT for authentication, with Swagger for API documentation.
+A full-stack web application for managing a sweet shop's inventory, user authentication, and purchase/restock operations. The frontend is built with React and Bootstrap. The backend uses Node.js, Express, MongoDB, and JWT for authentication, with Swagger for API documentation.
 
 ## Features
 
@@ -10,21 +10,54 @@ A full-stack web application for managing a sweet shop's inventory, user authent
   - **Admins**: Add, edit, delete, and restock sweets.
 - **UI Design**:
   - Responsive dashboard with a search bar, table for sweets, and action buttons.
-  - Buttons: 
-    - Search/Save: Large, dark purple (`#563d7c`), white text, hover `#4b3666`.
-    - Add Sweet: Large, purple (`#563d7c`), white text, hover `#4b3666`.
-    - Edit/Buy/Restock/Delete/Cancel: Smaller, dark purple (`#563d7c`), white text, hover `#4b3666`.
-  - Icons: Bootstrap Icons (`bi-search`, `bi-plus-circle`, `bi-save`, etc.) in `#563d7c`.
-  - Coral/cream theme (`#ff6f61`, `#fff3e0`) with no welcome message or logout button (logout in navbar dropdown).
 - **API Documentation**: Swagger UI at `/api-docs` for testing endpoints.
 - **Backend**: MongoDB for data storage, Express for API, JWT for secure access.
 
 ## Tech Stack
 
-- **Frontend**: React, React Bootstrap, Bootstrap Icons, Vite, Tailwind CSS (via `index.css`).
+- **Frontend**: React, React Bootstrap, Vite, Tailwind CSS.
 - **Backend**: Node.js, Express, MongoDB, Mongoose, JWT.
-- **API Docs**: Swagger (swagger-jsdoc, swagger-ui-express).
-- **Testing**: Jest, React Testing Library (frontend).
+- **API Docs**: Swagger.
+
+
+## My AI Usage
+
+### AI Tools Used
+- **Grok by xAI**: The primary AI tool used for development, debugging, and documentation of this project.
+
+### How I Used Grok
+- **Frontend Development**:
+  - I used Grok to generate the initial structure of React components, such as `Dashboard.jsx`, including the layout for the search bar, sweets table, and modals (Add/Edit, Buy, Restock).
+  - Grok helped modify the "Add Sweet" button in `Dashboard.jsx` to use the `btn-custom-purple` class (`#563d7c` background, white text, hover `#4b3666`), ensuring consistency with the Login/Register buttons while preserving alignment and icon styling.
+  - I asked Grok to provide troubleshooting steps for frontend issues, such as verifying button styles and responsive design in DevTools.
+- **Backend Development**:
+  - Grok assisted in generating the backend API routes (`auth.js`, `sweets.js`) with proper middleware for JWT authentication and admin role checks.
+  - I used Grok to brainstorm the structure of API endpoints (e.g., `/api/sweets`, `/api/sweets/{id}/buy`) and ensure they aligned with RESTful principles.
+  - Grok provided the code for integrating Swagger (`swagger.js`) and adding detailed `@swagger` comments to document endpoints, including request/response schemas and JWT security.
+- **Documentation**:
+  - I relied on Grok to draft and refine this `README.md`, ensuring it included clear installation steps, usage instructions, and styling details (e.g., coral/cream theme, `#563d7c` buttons).
+  - Grok helped structure the **My AI Usage** section to meet the requirement of detailing AI tool usage and reflection.
+- **Debugging and Optimization**:
+  - Grok suggested verification steps for the frontend (e.g., checking `index.css` for `btn-custom-purple`) and backend (e.g., ensuring MongoDB connection).
+  - I used Grok to generate commands for clearing Vite cache and checking CORS settings when troubleshooting.
+
+### Reflection on AI Impact
+Grok significantly streamlined my workflow by accelerating code generation, debugging, and documentation. It saved time by providing accurate React and Express code snippets tailored to my requirements, such as styling the "Add Sweet" button and setting up Swagger. The AI's ability to understand the project context (e.g., `#563d7c` theme, JWT auth) ensured consistency across frontend and backend. However, I had to carefully review Grok's outputs to ensure alignment with specific project needs, like avoiding test file generation and maintaining existing button styles. The iterative nature of asking Grok for refinements (e.g., adding this section) improved the quality of the codebase and documentation. Overall, Grok enhanced productivity but required active oversight to ensure precision, especially for complex integrations like Swagger.
+
+
+## Screenshots
+
+Below are screenshots of the key interfaces in the Sweet Shop Management System:
+
+- **Dashboard**: Displays the search bar, sweets table, and purple "Add Sweet" button.
+  ![Dashboard](screenshots/dashboard.png)
+- **Swagger UI**: Interactive API documentation for testing endpoints.
+  ![Swagger UI](screenshots/swagger-ui.png)
+- **Login Page**: Shows the login form with purple buttons and coral/cream theme.
+  ![Login Page](screenshots/login.png)
+
+*Note*: Screenshots are stored in the `screenshots/` folder. See **Adding Screenshots** below for instructions on capturing and updating them.
+
 
 ## Prerequisites
 
@@ -39,6 +72,7 @@ A full-stack web application for managing a sweet shop's inventory, user authent
 git clone <your-repo-url>
 cd sweet-shop
 ```
+
 
 ### Backend Setup
 1. Navigate to the backend directory:
@@ -136,7 +170,7 @@ sweet-shop/
 │   │   └── sweetsController.js
 │   ├── middleware/
 │   │   └── auth.js
-│   ├── db/
+│   ├── Db/
 │   │   └── db.js
 │   ├── swagger.js
 │   ├── server.js
@@ -158,51 +192,3 @@ sweet-shop/
 │   └── package.json
 └── README.md
 ```
-
-## Styling Notes
-
-- **Theme**: Coral (`#ff6f61`) and cream (`#fff3e0`) with dark purple (`#563d7c`) buttons/icons.
-- **Buttons**:
-  - Search/Save: Large, `#563d7c`, white text, hover `#4b3666`.
-  - Add Sweet: Large, `#563d7c`, white text, hover `#4b3666` (uses `btn-custom-purple`).
-  - Edit/Buy/Restock/Delete/Cancel: Smaller, `#563d7c`, white text, hover `#4b3666`.
-- **Icons**: `#563d7c`, 16px (14px on mobile), centered with text (`gap-2`).
-- **Navbar**: `#563d7c`, no top whitespace, includes `bi-shop` and `bi-person-fill` icons.
-
-## Troubleshooting
-
-- **Backend Errors**:
-  - Ensure MongoDB is running and `MONGODB_URI` is correct.
-  - Check `JWT_SECRET` in `.env`.
-  - Clear cache: `rm -rf node_modules/.cache` and `npm install`.
-- **Frontend Errors**:
-  - Verify backend is running (`http://localhost:5000`).
-  - Check CORS in `server.js`: `app.use(cors())`.
-- **Swagger Issues**:
-  - Access `http://localhost:5000/api-docs`.
-  - Ensure `swagger.js` points to `routes/*.js`.
-  - Use valid JWT for protected endpoints.
-- **Button Misalignment**: Inspect with DevTools; verify `index.css` for `btn-custom-purple` and `gap: 0.5rem`.
-
-## Deployment
-
-1. **Backend**:
-   - Set `MONGODB_URI` and `JWT_SECRET` in production environment.
-   - Update `swagger.js` server URL (e.g., `https://your-api.com`).
-   - Deploy with a service like Render or Heroku.
-2. **Frontend**:
-   - Build: `cd frontend && npm run build`.
-   - Serve `dist/` folder with backend or a static host (e.g., Netlify).
-   - Update API base URL in `frontend/src/services/sweetsService.js`.
-
-## Contributing
-
-1. Fork the repository.
-2. Create a feature branch: `git checkout -b feature-name`.
-3. Commit changes: `git commit -m "Add feature"`.
-4. Push: `git push origin feature-name`.
-5. Open a pull request.
-
-## License
-
-MIT License. See `LICENSE` file for details.
