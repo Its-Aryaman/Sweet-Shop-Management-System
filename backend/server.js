@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import connectDb from './db/db.js';
 import authRoutes from './routes/auth.js';
 import sweetsRoutes from './routes/sweets.js';
-import swaggerSetup from './Swagger.js';
+import swaggerSetup from './swagger.js';
 
 dotenv.config();
 connectDb();
