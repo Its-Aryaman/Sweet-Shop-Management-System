@@ -15,9 +15,6 @@ function App() {
         <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
         <Route path="/" element={<Login />} />
       </Routes>
-      <footer className="text-center py-3 mt-4 bg-secondary text-white">
-        &copy; 2025 Sweet Shop. All rights reserved.
-      </footer>
     </Router>
   );
 }

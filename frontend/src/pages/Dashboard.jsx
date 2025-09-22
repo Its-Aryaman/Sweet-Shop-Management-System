@@ -112,7 +112,7 @@ const Dashboard = () => {
   const handleRestockSubmit = async () => {
     const quantity = parseInt(restockQuantity);
     if (!quantity || quantity <= 0) {
-      setError('Please enter a valid restock quantity');
+      set |Error('Please enter a valid restock quantity');
       return;
     }
     try {
@@ -153,7 +153,21 @@ const Dashboard = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="me-2"
             />
-            <Button variant="dark-purple" type="submit" aria-label="Search sweets">
+            <Button
+              variant="custom-primary"
+              type="submit"
+              className="d-flex align-items-center justify-content-center gap-2"
+              aria-label="Search sweets"
+            >
+              <svg
+                className="bi"
+                width="16"
+                height="16"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <use xlink:href="#search" />
+              </svg>
               Search
             </Button>
           </Form>
@@ -165,7 +179,21 @@ const Dashboard = () => {
             </Alert>
           )}
           {error && <Alert variant="danger">{error}</Alert>}
-          <Button variant="dark-purple" onClick={handleAdd} className="mb-3" aria-label="Add new sweet">
+          <Button
+            variant="custom-purple"
+            onClick={handleAdd}
+            className="mb-3 d-flex align-items-center justify-content-center gap-2 btn-lg bd-btn-lg btn-bd-primary fw-semibold"
+            aria-label="Add new sweet"
+          >
+            <svg
+              className="bi"
+              width="16"
+              height="16"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <use xlink:href="#plus-circle" />
+            </svg>
             Add Sweet
           </Button>
           <div className="table-responsive">
@@ -340,7 +368,21 @@ const Dashboard = () => {
               <Button variant="dark-purple" onClick={() => setShowModal(false)} aria-label="Cancel">
                 Cancel
               </Button>
-              <Button variant="dark-purple" onClick={handleSave} aria-label="Save sweet">
+              <Button
+                variant="dark-purple"
+                onClick={handleSave}
+                className="d-flex align-items-center justify-content-center gap-2"
+                aria-label="Save sweet"
+              >
+                <svg
+                  className="bi"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <use xlink:href="#save" />
+                </svg>
                 Save
               </Button>
             </Modal.Footer>

@@ -77,8 +77,13 @@ body {
 }
 
 .btn-dark-purple svg {
-  fill: #ffffff;
+  fill: currentColor;
+  color: var(--navbar-color);
   margin-right: 4px;
+}
+
+.btn-dark-purple:hover svg {
+  color: var(--button-hover-color);
 }
 
 .btn-custom-primary {
@@ -90,6 +95,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
+  line-height: 1.5;
+  padding: 0.5rem 1rem;
 }
 
 .btn-custom-primary:hover {
@@ -100,10 +108,28 @@ body {
 }
 
 .btn-custom-primary svg {
-  fill: #ffffff;
-  margin-right: 0.5rem;
+  fill: currentColor;
+  color: var(--navbar-color);
   width: 16px;
   height: 16px;
+}
+
+.btn-custom-primary:hover svg {
+  color: var(--button-hover-color);
+}
+
+.btn-custom-purple {
+  background-color: var(--navbar-color);
+  border-color: var(--navbar-color);
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.btn-custom-purple:hover {
+  background-color: var(--button-hover-color);
+  border-color: var(--button-hover-color);
+  transform: scale(1.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .dropdown-menu {
@@ -188,8 +214,8 @@ body {
 }
 
 .form-control:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 5px rgba(255, 111, 97, 0.3);
+  border-color: var(--navbar-color);
+  box-shadow: 0 0 5px rgba(86, 61, 124, 0.3);
 }
 
 .form-control:invalid:not(:focus) {
@@ -205,6 +231,13 @@ body {
 .navbar-brand svg:hover {
   transform: scale(1.1);
   transition: transform 0.3s ease;
+}
+
+.btn-custom-primary:focus,
+.btn-dark-purple:focus,
+.btn-custom-purple:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
 
 @media (max-width: 768px) {
@@ -229,11 +262,17 @@ body {
   .btn-custom-primary {
     padding: 8px 12px;
     font-size: 0.9rem;
+    gap: 0.4rem;
   }
 
   .btn-custom-primary svg {
     width: 14px;
     height: 14px;
+  }
+
+  .btn-custom-purple {
+    padding: 6px 10px;
+    font-size: 0.8rem;
   }
 
   .form-control {
