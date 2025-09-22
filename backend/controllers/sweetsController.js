@@ -1,6 +1,7 @@
-const Sweet = require('../models/Sweet');
 
-const addSweet = async (req, res) => {
+import Sweet from '../models/Sweet.js';
+
+export const addSweet = async (req, res) => {
   const { name, category, price, quantity } = req.body;
 
   try {
@@ -16,7 +17,7 @@ const addSweet = async (req, res) => {
   }
 };
 
-const getSweets = async (req, res) => {
+export const getSweets = async (req, res) => {
   try {
     const sweets = await Sweet.find();
     res.json(sweets);
@@ -25,7 +26,7 @@ const getSweets = async (req, res) => {
   }
 };
 
-const searchSweets = async (req, res) => {
+export const searchSweets = async (req, res) => {
   const { name, category, minPrice, maxPrice } = req.query;
   const query = {};
 
@@ -42,7 +43,7 @@ const searchSweets = async (req, res) => {
   }
 };
 
-const updateSweet = async (req, res) => {
+export const updateSweet = async (req, res) => {
   const { id } = req.params;
   const { name, category, price, quantity } = req.body;
 
@@ -52,7 +53,6 @@ const updateSweet = async (req, res) => {
       return res.status(404).json({ message: 'Sweet not found' });
     }
 
-    // Check for duplicate name (excluding the current sweet)
     if (name && name !== sweet.name) {
       const sweetExists = await Sweet.findOne({ name });
       if (sweetExists) {
@@ -71,7 +71,7 @@ const updateSweet = async (req, res) => {
   }
 };
 
-const deleteSweet = async (req, res) => {
+export const deleteSweet = async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -85,7 +85,7 @@ const deleteSweet = async (req, res) => {
   }
 };
 
-const purchaseSweet = async (req, res) => {
+export const purchaseSweet = async (req, res) => {
   const { id } = req.params;
   const { quantity } = req.body;
 
@@ -109,7 +109,7 @@ const purchaseSweet = async (req, res) => {
   }
 };
 
-const restockSweet = async (req, res) => {
+export const restockSweet = async (req, res) => {
   const { id } = req.params;
   const { quantity } = req.body;
 
@@ -130,12 +130,3 @@ const restockSweet = async (req, res) => {
   }
 };
 
-module.exports = {
-  addSweet,
-  getSweets,
-  searchSweets,
-  updateSweet,
-  deleteSweet,
-  purchaseSweet,
-  restockSweet,
-};

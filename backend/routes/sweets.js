@@ -1,13 +1,24 @@
-const express = require("express");
-const { addSweet, getSweets, searchSweets, updateSweet, deleteSweet } = require("../controllers/sweetController");
-const { protect, admin } = require("../middleware/auth");
+import express from "express";
+import {
+  addSweet,
+  getSweets,
+  searchSweets,
+  updateSweet,
+  deleteSweet,
+  purchaseSweet,
+  restockSweet,
+} from "../controllers/sweetsController.js";
+
+import { authMiddleware, admin } from "../middleware/auth.js";
 
 const router = express.Router();
 
-router.post("/", protect, addSweet);
-router.get("/", protect, getSweets);
-router.get("/search", protect, searchSweets);
-router.put("/:id", protect, updateSweet);
-router.delete("/:id", protect, admin, deleteSweet); // Admin only
+router.post("/", addSweet);
+router.get("/", authMiddleware, getSweets);
+router.get("/search", authMiddleware, searchSweets);
+router.put("/:id", authMiddleware, updateSweet);
+router.delete("/:id", authMiddleware, admin, deleteSweet);
+router.post("/:id/purchase", authMiddleware, purchaseSweet);
+router.post("/:id/restock", authMiddleware, admin, restockSweet);
 
-module.exports = router;
+export default router;
